@@ -19,14 +19,26 @@ body {
   margin-bottom: 16px;
 }
 
+ 
+
+
+
+
 .country-list {
   list-style-type: none;
-  font-size: 0.8rem;
+  margin:0;
+padding:0;
 }
 .eachCountry {
-  /* display: flex; */
+   display: flex; 
+  align-items: center;
+   gap: 0.4rem;
 }
 
-/* .listFlag {
+ .listFlag {
   width: 1rem;
-} */
+} 
+
+.eachName {
+  margin:0;
+}

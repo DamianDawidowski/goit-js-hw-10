@@ -24,11 +24,10 @@ input.addEventListener(
 function renderUserList(users) {
   const markup = users
     .map(user => {
-      console.log(`flag is: ${user.flags}`);
-      return `
-          <li class="eachCountry"><img class="eachFlag" width = 20 src=${user.flags.svg}/>
-          <p class="eachName">${user.name}</p>
-         </li>
+      console.log(`flag is: ${user.flags.svg}`);
+      return `<li class="eachCountry"><img class="eachFlag" width =20 height=15 src=${user.flags.svg} />
+      <p class="eachName">${user.name}</p>
+      </li>
       `;
     })
     .join('');
