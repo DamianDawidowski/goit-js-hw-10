@@ -14,7 +14,21 @@ input.addEventListener(
   'input',
   debounce(() => {
     fetchCountries(`${input.value}`)
-      .then(users => renderUserList(users))
+      .then(users => {
+        if (users.length > 10) {
+          Notiflix.Notify.info(
+            'Too many matches found. Please enter a more specific name.'
+          );
+          return;
+        }
+         else if (users.length >2) {
+          //  console.log(`users are: ${users.length}`);
+           renderUserList(users);
+        }
+        else {
+          renderSingle(users);
+        }
+      })
       .catch(error => {
         Notiflix.Notify.failure(`Oops, there is no country with that name`);
       }
@@ -30,7 +44,7 @@ input.addEventListener(
 function renderUserList(users) {
   const markup = users
     .map(user => {
-      console.log(`flag is: ${user.flags.svg}`);
+      // console.log(`flag is: ${user.flags.svg}`);
       return `<li class="eachCountry"><img class="eachFlag" width =20 height=15 src=${user.flags.svg} />
       <p class="eachName">${user.name}</p>
       </li>
@@ -39,6 +53,25 @@ function renderUserList(users) {
     .join('');
   countryList.innerHTML = markup;
 }
+
+function renderSingle(users) {
+  const markup = users
+    .map(user => {
+      // console.log(`flag is: ${user.flags.svg}`);
+      return `<li class="eachCountry"><img class="eachFlag" width =20 height=15 src=${user.flags.svg} />
+      <p class="eachName">${user.name}</p>
+      </li>
+      `;
+    })
+    .join('');
+  countryList.innerHTML = markup;
+}
+
+
+
+
+
+
 console.log(`country list is: ${countryList}`);
 
 // fetchCountries('states');
