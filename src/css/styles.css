@@ -19,29 +19,24 @@ body {
   margin-bottom: 16px;
 }
 
- 
-
-
-
-
 .country-list {
   list-style-type: none;
-  margin:0;
-padding:0;
+  margin: 0;
+  padding: 0;
 }
 .eachCountry {
-   display: flex; 
+  display: flex;
   align-items: center;
-   gap: 0.4rem;
+  gap: 0.4rem;
 }
 
- .listFlag {
+.listFlag {
   width: 1rem;
-} 
+}
 
 .eachName {
-  margin-top:0;
-  margin-bottom:1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .singleCountryName {
@@ -50,7 +45,10 @@ padding:0;
 }
 
 .eachInfo {
-   padding-bottom:0.5rem;
-   display: flex; 
-   font-weight: 600;
+  padding-bottom: 0.5rem;
+  display: flex;
+}
+
+.eachHighlight {
+  font-weight: 600;
 }
