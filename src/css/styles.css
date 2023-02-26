@@ -51,4 +51,6 @@ padding:0;
 
 .eachInfo {
    padding-bottom:0.5rem;
+   display: flex; 
+   font-weight: 600;
 }

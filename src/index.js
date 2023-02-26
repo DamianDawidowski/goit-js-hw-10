@@ -14,10 +14,9 @@ const countryDetails = document.querySelector('.country-info');
 input.addEventListener(
   'input',
   debounce(() => {
-if (!input.value.trim()) {
-  return;
-}
-
+    if (!input.value.trim()) {
+      return;
+    }
 
     fetchCountries(`${input.value.trim()}`)
       .then(countries => {
@@ -52,7 +51,7 @@ function rendercountryList(countries) {
     })
     .join('');
   countryList.innerHTML = markup;
-  countryDetails.innerHTML = "";
+  countryDetails.innerHTML = '';
 }
 
 function renderSingle(countries) {
@@ -62,27 +61,22 @@ function renderSingle(countries) {
       let extraHTML = `<div class="eachCountry"><img class="eachFlag" width =22 height=16 src=${country.flags.svg} />
       <h2 class="singleCountryName">${country.name}</h2>
       </div>
-      <p class="eachInfo">Capital: ${country.capital}</p>
-      <p class="eachInfo">Population: ${country.population}</p>
-      <p class="eachInfo">Languages: ${country.languages[0].name}`;
-     
-     
-       for (let i = 1; i < country.languages.length-1;i++) {
-       extraHTML = extraHTML + `, ${country.languages[i].name}`  }
- 
-      extraHTML = extraHTML + ` </p>`; 
-return extraHTML;
-      } )
-    
+    <p class="eachInfo"> <span class=" ">Capital: </span><span>${country.capital}</span></p>
+     <p class="eachInfo"> <span class=" ">Capital: </span><span>${country.population}</span></p>
+      <span class="eachInfo">Languages:  </span><span>${country.languages[0].name}`;
+
+      for (let i = 1; i < country.languages.length - 1; i++) {
+        extraHTML = extraHTML + `, ${country.languages[i].name}`;
+      }
+
+      extraHTML = extraHTML + ` </span>`;
+      return extraHTML;
+    })
+
     .join('');
   countryDetails.innerHTML = markup;
-  countryList.innerHTML = "";
+  countryList.innerHTML = '';
 }
-
-
-
-
-
 
 console.log(`country list is: ${countryList}`);
 
