@@ -72,4 +72,5 @@ function renderSingle(countries) {
   countryDetails.innerHTML = markup;
   countryList.innerHTML = '';
 }
- 
+
+console.log(`country list is: ${countryList}`);
