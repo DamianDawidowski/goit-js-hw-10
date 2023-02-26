@@ -61,9 +61,9 @@ function renderSingle(countries) {
       let extraHTML = `<div class="eachCountry"><img class="eachFlag" width =22 height=16 src=${country.flags.svg} />
       <h2 class="singleCountryName">${country.name}</h2>
       </div>
-    <div class="eachInfo"> <span class="eachHighlight">Capital: </span><p> ${country.capital}</p></div>
-     <div class="eachInfo"> <span class="eachHighlight">Capital: </span><p> ${country.population}</p></div>
-      <div class="eachInfo"> <p class="eachHighlight">Languages: </p><span>${country.languages[0].name}`;
+    <div class="eachInfo"> <span class="eachHighlight">Capital: </span><p class="eachValue"> ${country.capital}</p></div>
+     <div class="eachInfo"> <span class="eachHighlight">Capital: </span><p class="eachValue"> ${country.population}</p></div>
+      <div class="eachInfo"> <p class="eachHighlight removeMargin">Languages: </p><span class="eachValue">${country.languages[0].name}`;
 
       for (let i = 1; i < country.languages.length - 1; i++) {
         extraHTML = extraHTML + `, ${country.languages[i].name}`;

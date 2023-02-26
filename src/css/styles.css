@@ -53,3 +53,7 @@ body {
 .eachHighlight {
   font-weight: 600;
 }
+
+.eachValue .removeMargin{
+   margin: 0;
+}
