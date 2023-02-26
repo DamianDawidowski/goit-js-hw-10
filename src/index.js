@@ -25,7 +25,7 @@ input.addEventListener(
           //  console.log(`users are: ${users.length}`);
            renderUserList(users);
         }
-        else {
+        else if (users.length ==1) {
           renderSingle(users);
         }
       })
@@ -52,19 +52,24 @@ function renderUserList(users) {
     })
     .join('');
   countryList.innerHTML = markup;
+  countryDetails.innerHTML = "";
 }
 
 function renderSingle(users) {
   const markup = users
     .map(user => {
       // console.log(`flag is: ${user.flags.svg}`);
-      return `<li class="eachCountry"><img class="eachFlag" width =20 height=15 src=${user.flags.svg} />
+      return `<div class="eachCountry"><img class="eachFlag" width =20 height=15 src=${user.flags.svg} />
       <p class="eachName">${user.name}</p>
-      </li>
+      </div>
+      <p class="eachName">Capital: ${user.capital}</p>
+      <p class="eachName">Population: ${user.population}</p>
+      <p class="eachName">Languages: ${user.languages.name}</p>
       `;
     })
     .join('');
-  countryList.innerHTML = markup;
+  countryDetails.innerHTML = markup;
+  countryList.innerHTML = "";
 }
 
 

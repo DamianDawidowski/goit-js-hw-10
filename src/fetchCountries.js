@@ -11,7 +11,7 @@
 //       .then(response => response.json())
 //         .then(json => console.log(json));
 //     //   return response.json();
-// }
+// }XXXXXXXXXXXXX
  
  
 export function fetchCountries(stateName) {
@@ -25,9 +25,12 @@ export function fetchCountries(stateName) {
   });
 }
 
+
+//XXXXXXXXXXXXXX
 //   function fetchFlag(stateName) {
 //     return fetch(
-//       `https://restcountries.com/v2//name/${stateName}?fields=population,flags`
+//       // `https://restcountries.com/v2//name/${stateName}?fields=languages`
+//       `https://restcountries.com/v2/lang/es`
 //     )
 //       .then(response => response.json())
 //       .then(json => console.log(json));;
