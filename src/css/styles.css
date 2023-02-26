@@ -54,6 +54,10 @@ body {
   font-weight: 600;
 }
 
-.eachValue .removeMargin{
-   margin: 0;
+.eachValue {
+  margin: 0;
+}
+
+.removeMargin {
+  margin: 0;
 }
