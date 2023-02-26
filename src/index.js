@@ -63,13 +63,13 @@ function renderSingle(countries) {
       </div>
     <p class="eachInfo"> <span class="eachHighlight">Capital: </span><p> ${country.capital}</p></p>
      <p class="eachInfo"> <span class="eachHighlight">Capital: </span><p> ${country.population}</p></p>
-      <span class="eachInfo">Languages:  </span><span>${country.languages[0].name}`;
+      <p class="eachInfo"> <span class="eachHighlight">Languages:  </span><span>${country.languages[0].name}`;
 
       for (let i = 1; i < country.languages.length - 1; i++) {
         extraHTML = extraHTML + `, ${country.languages[i].name}`;
       }
 
-      extraHTML = extraHTML + ` </span>`;
+      extraHTML = extraHTML + ` </span></p>`;
       return extraHTML;
     })
 
