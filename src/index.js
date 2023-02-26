@@ -2,21 +2,19 @@ import './css/styles.css';
 import { fetchCountries } from './fetchCountries';
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
-import { forEach } from 'lodash';
-// import  './fetchCountries';
-const DEBOUNCE_DELAY = 500;
+
+const DEBOUNCE_DELAY = 300;
 
 const input = document.querySelector('input');
 const countryList = document.querySelector('.country-list');
 const countryDetails = document.querySelector('.country-info');
-//  console.log(input);
 
 input.addEventListener(
   'input',
   debounce(() => {
     if (!input.value.trim()) {
-       countryList.textContent = '';
-       countryDetails.textContent = '';
+      countryList.textContent = '';
+      countryDetails.textContent = '';
       return;
     }
 
@@ -28,7 +26,6 @@ input.addEventListener(
           );
           return;
         } else if (countries.length > 2) {
-          //  console.log(`countries are: ${countries.length}`);
           rendercountryList(countries);
         } else if (countries.length == 1) {
           renderSingle(countries);
@@ -37,15 +34,12 @@ input.addEventListener(
       .catch(error => {
         Notiflix.Notify.failure(`Oops, there is no country with that name`);
       });
-
-    //   console.log(`${input.value}`);
   }, DEBOUNCE_DELAY)
 );
 
 function rendercountryList(countries) {
   const markup = countries
     .map(country => {
-      // console.log(`flag is: ${country.flags.svg}`);
       return `<li class="eachCountry"><img class="eachFlag" width =20 height=15 src=${country.flags.svg} />
       <p class="eachName">${country.name}</p>
       </li>
@@ -59,7 +53,6 @@ function rendercountryList(countries) {
 function renderSingle(countries) {
   const markup = countries
     .map(country => {
-      // console.log(`flag is: ${country.flags.svg}`);
       let extraHTML = `<div class="eachCountry"><img class="eachFlag" width =22 height=16 src=${country.flags.svg} />
       <h2 class="singleCountryName">${country.name}</h2>
       </div>
@@ -81,5 +74,3 @@ function renderSingle(countries) {
 }
 
 console.log(`country list is: ${countryList}`);
-
-// fetchCountries('states');
