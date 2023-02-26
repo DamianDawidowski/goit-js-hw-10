@@ -15,6 +15,8 @@ input.addEventListener(
   'input',
   debounce(() => {
     if (!input.value.trim()) {
+       countryList.textContent = '';
+       countryDetails.textContent = '';
       return;
     }
 
