@@ -57,7 +57,7 @@ function renderSingle(countries) {
       <h2 class="singleCountryName">${country.name}</h2>
       </div>
     <div class="eachInfo"> <span class="eachHighlight">Capital: </span><p class="eachValue"> ${country.capital}</p></div>
-     <div class="eachInfo"> <span class="eachHighlight">Capital: </span><p class="eachValue"> ${country.population}</p></div>
+     <div class="eachInfo"> <span class="eachHighlight">Population: </span><p class="eachValue"> ${country.population}</p></div>
       <div class="eachInfo"> <p class="eachHighlight removeMargin">Languages: </p><span class="eachValue">${country.languages[0].name}`;
 
       for (let i = 1; i < country.languages.length - 1; i++) {
