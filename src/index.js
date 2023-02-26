@@ -32,8 +32,8 @@ input.addEventListener(
        .map(user => {
          console.log(`flag is: ${user.flags }`);
        return `
-          <li class="listCountry"><p class="listName">${user.name}</p>
-          <img class="listFlag" width = 20 src=${user.flags.svg}   />
+          <li class="eachCountry"><p class="eachName">${user.name}</p>
+          <img class="eachFlag" width = 20 src=${user.flags.svg}   />
          </li>
       `;
      })
