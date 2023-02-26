@@ -15,7 +15,13 @@ input.addEventListener(
   debounce(() => {
     fetchCountries(`${input.value}`)
       .then(users => renderUserList(users))
-      .catch(error => console.log(error));
+      .catch(error => {
+        Notiflix.Notify.failure(`Oops, there is no country with that name`);
+      }
+        
+        
+        
+        );
 
     //   console.log(`${input.value}`);
   }, DEBOUNCE_DELAY)
