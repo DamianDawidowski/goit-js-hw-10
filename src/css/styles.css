@@ -24,7 +24,7 @@ body {
   font-size: 0.8rem;
 }
 .eachCountry {
-  display: flex;
+  /* display: flex; */
 }
 
 /* .listFlag {
