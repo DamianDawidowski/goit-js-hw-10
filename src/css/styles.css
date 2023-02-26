@@ -28,6 +28,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  padding-bottom: 0.6rem;;
 }
 
 .listFlag {
@@ -46,7 +47,7 @@ body {
 
 .eachInfo {
   margin: 0;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   display: flex;
 }
 
