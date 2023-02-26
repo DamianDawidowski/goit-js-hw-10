@@ -2,6 +2,7 @@ import './css/styles.css';
 import { fetchCountries } from './fetchCountries';
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
+import { forEach } from 'lodash';
 // import  './fetchCountries';
 const DEBOUNCE_DELAY = 500;
 
@@ -13,40 +14,39 @@ const countryDetails = document.querySelector('.country-info');
 input.addEventListener(
   'input',
   debounce(() => {
-    fetchCountries(`${input.value}`)
-      .then(users => {
-        if (users.length > 10) {
+if (!input.value.trim()) {
+  return;
+}
+
+
+    fetchCountries(`${input.value.trim()}`)
+      .then(countries => {
+        if (countries.length > 10) {
           Notiflix.Notify.info(
             'Too many matches found. Please enter a more specific name.'
           );
           return;
-        }
-         else if (users.length >2) {
-          //  console.log(`users are: ${users.length}`);
-           renderUserList(users);
-        }
-        else if (users.length ==1) {
-          renderSingle(users);
+        } else if (countries.length > 2) {
+          //  console.log(`countries are: ${countries.length}`);
+          rendercountryList(countries);
+        } else if (countries.length == 1) {
+          renderSingle(countries);
         }
       })
       .catch(error => {
         Notiflix.Notify.failure(`Oops, there is no country with that name`);
-      }
-        
-        
-        
-        );
+      });
 
     //   console.log(`${input.value}`);
   }, DEBOUNCE_DELAY)
 );
 
-function renderUserList(users) {
-  const markup = users
-    .map(user => {
-      // console.log(`flag is: ${user.flags.svg}`);
-      return `<li class="eachCountry"><img class="eachFlag" width =20 height=15 src=${user.flags.svg} />
-      <p class="eachName">${user.name}</p>
+function rendercountryList(countries) {
+  const markup = countries
+    .map(country => {
+      // console.log(`flag is: ${country.flags.svg}`);
+      return `<li class="eachCountry"><img class="eachFlag" width =20 height=15 src=${country.flags.svg} />
+      <p class="eachName">${country.name}</p>
       </li>
       `;
     })
@@ -55,18 +55,25 @@ function renderUserList(users) {
   countryDetails.innerHTML = "";
 }
 
-function renderSingle(users) {
-  const markup = users
-    .map(user => {
-      // console.log(`flag is: ${user.flags.svg}`);
-      return `<div class="eachCountry"><img class="eachFlag" width =20 height=15 src=${user.flags.svg} />
-      <p class="eachName">${user.name}</p>
+function renderSingle(countries) {
+  const markup = countries
+    .map(country => {
+      // console.log(`flag is: ${country.flags.svg}`);
+      let extraHTML = `<div class="eachCountry"><img class="eachFlag" width =22 height=16 src=${country.flags.svg} />
+      <h2 class="singleCountryName">${country.name}</h2>
       </div>
-      <p class="eachName">Capital: ${user.capital}</p>
-      <p class="eachName">Population: ${user.population}</p>
-      <p class="eachName">Languages: ${user.languages.name}</p>
-      `;
-    })
+      <p class="eachName">Capital: ${country.capital}</p>
+      <p class="eachName">Population: ${country.population}</p>
+      <p class="eachName">Languages: ${country.languages[0].name}`;
+     
+     
+       for (let i = 1; i < country.languages.length-1;i++) {
+       extraHTML = extraHTML + `, ${country.languages[i].name}`  }
+ 
+      extraHTML = extraHTML + ` </p>`; 
+return extraHTML;
+      } )
+    
     .join('');
   countryDetails.innerHTML = markup;
   countryList.innerHTML = "";

@@ -42,3 +42,8 @@ padding:0;
 .eachName {
   margin:0;
 }
+
+.singleCountryName {
+  font-size: 1.2rem;
+  margin: 0;
+}
